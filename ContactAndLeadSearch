@@ -1,0 +1,10 @@
+// Create an Apex class that returns both contacts and leads based on a parameter.
+
+public class ContactAndLeadSearch {
+    public static List<List<sObject>> searchContactsAndLeads(String keyWord) {
+        List<List<sObject>> searchList = [FIND : keyWord IN ALL FIELDS
+                            RETURNING Contact(FirstName,LastName),Lead(FirstName,LastName) ];
+        return searchList;
+    }
+        
+}
