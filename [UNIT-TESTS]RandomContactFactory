@@ -1,0 +1,18 @@
+// Create an Apex class that returns a list of contacts based on two incoming parameters: the number of contacts to generate and the last name. 
+// Do not insert the generated contact records into the database.
+
+// NOTE:For the purposes of verifying this hands-on challenge, don't specify the @isTest annotation for either the class or the method, even though it's usually required.
+
+public class RandomContactFactory {
+
+    public static List<Contact> generateRandomContacts(Integer conNum, String lastname) {
+        List<Contact> con = new List<Contact>();
+        for(Integer i=0; i<conNum; i++) {
+            Contact a = new Contact(FirstName = 'Number №'+ i, LastName = lastname);
+            con.add(a);
+        }
+    	insert con;
+        return con;
+    }
+    
+}
