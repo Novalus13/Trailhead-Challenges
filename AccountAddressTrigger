@@ -1,0 +1,11 @@
+// Create an a Apex trigger that sets an account's Shipping Postal Code to match the Billing Postal Code if the Match Billing Address option is selected. 
+// Fire the trigger before inserting an account or updating an account.
+
+trigger AccountAddressTrigger on Account (before insert,before update) {
+       
+    for(Account account: Trigger.new){
+            if(account.Match_Billing_Address__c == true){
+                account.ShippingPostalCode = account.BillingPostalCode;
+            }
+            }
+        }
